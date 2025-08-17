@@ -1,0 +1,13 @@
+transactions = [
+    {"user": "alice", "amount": 15000},
+    {"user": "bob", "amount": 500},
+]
+
+def aml_check(tx):
+    alerts = []
+    for t in tx:
+        if t["amount"] > 10000:
+            alerts.append(f"AML Alert: High-value transaction by {t['user']}")
+    return alerts
+
+print(aml_check(transactions))
